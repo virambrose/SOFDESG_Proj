@@ -22,6 +22,7 @@ public class checkItem extends VBox {
         addComp = new Button("Add");
         components = new VBox();
         addComp.setOnAction(event -> addItem(componentField.getText()));
+        componentField.setOnAction(event -> addItem(componentField.getText()));
         HBox hBox = new HBox(componentField, addComp);
         this.getChildren().addAll(this.title, hBox, this.components);
     }
@@ -29,6 +30,7 @@ public class checkItem extends VBox {
     private void addItem(String str){
         boxes.add(new CheckBoxLabel(str + " ", count+1));
         values.add(false);
+        componentField.clear();
         components.getChildren().clear();
         components.getChildren().addAll(boxes);
         count++;

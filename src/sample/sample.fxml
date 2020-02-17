@@ -29,7 +29,7 @@
                                     <Button fx:id="add" layoutX="340.0" layoutY="1.0" mnemonicParsing="false" onAction="#addItem" prefHeight="25.0" prefWidth="46.0" text="Add" />
                                  </children>
                               </HBox>
-                              <ComboBox fx:id="combo" layoutX="5.0" layoutY="34.0" onAction="#showItem" prefHeight="25.0" prefWidth="491.0" promptText="Choose Component" />
+                              <ComboBox fx:id="combo" layoutX="5.0" layoutY="34.0" onAction="#showItem" prefHeight="25.0" prefWidth="491.0" promptText="Choose Machine" />
                            </children>
                         </VBox>
                         <ScrollPane layoutX="14.0" layoutY="64.0" prefHeight="962.0" prefWidth="491.0">
