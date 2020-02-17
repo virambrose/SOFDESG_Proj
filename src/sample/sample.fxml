@@ -17,14 +17,35 @@
    <children>
       <AnchorPane prefHeight="670.0" prefWidth="725.0">
          <children>
-            <HBox prefHeight="25.0" prefWidth="725.0">
-               <children>
-                  <TextField fx:id="nameBox" onAction="#addItem" prefHeight="25.0" prefWidth="326.0" />
-                  <Button fx:id="add" mnemonicParsing="false" onAction="#addItem" text="Add" />
-                  <ComboBox fx:id="combo" onAction="#showItem" prefHeight="25.0" prefWidth="361.0" promptText="Choose Component" />
-               </children>
-            </HBox>
-            <AnchorPane fx:id="displayPane" layoutY="25.0" prefHeight="642.0" prefWidth="725.0" />
+            <SplitPane layoutX="-8.0" prefHeight="1043.0" prefWidth="1713.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0">
+                           <children>
+                              <HBox layoutX="8.0">
+                                 <children>
+                                    <TextField fx:id="nameBox" layoutX="8.0" onAction="#addItem" prefHeight="25.0" prefWidth="446.0" />
+                                    <Button fx:id="add" layoutX="340.0" layoutY="1.0" mnemonicParsing="false" onAction="#addItem" prefHeight="25.0" prefWidth="46.0" text="Add" />
+                                 </children>
+                              </HBox>
+                              <ComboBox fx:id="combo" layoutX="5.0" layoutY="34.0" onAction="#showItem" prefHeight="25.0" prefWidth="491.0" promptText="Choose Component" />
+                           </children>
+                        </VBox>
+                        <ScrollPane layoutX="14.0" layoutY="64.0" prefHeight="962.0" prefWidth="491.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <ListView fx:id="list" prefHeight="962.0" prefWidth="491.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </ScrollPane>
+                        <AnchorPane fx:id="displayPane" layoutX="506.0" layoutY="14.0" prefHeight="1012.0" prefWidth="1205.0" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
          </children>
       </AnchorPane>
    </children>

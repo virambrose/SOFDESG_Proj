@@ -7,10 +7,12 @@ import javafx.scene.layout.HBox;
 class CheckBoxLabel extends HBox {
     private CheckBox check;
     private Label label;
+    private Label number;
 
-    CheckBoxLabel(String text){
+    CheckBoxLabel(String text, int count){
         check = new CheckBox();
         label = new Label(text);
-        this.getChildren().addAll(label, check);
+        number = new Label(count + ". ");
+        this.getChildren().addAll(number, label, check);
     }
 }
