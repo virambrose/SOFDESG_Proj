@@ -5,11 +5,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class checkItem extends VBox {
     private ArrayList<CheckBoxLabel> boxes = new ArrayList<>();
-    private ArrayList<Boolean> values = new ArrayList<Boolean>();
+    private ArrayList<Boolean> values = new ArrayList<>();
     private int count = 0;
     private Label title;
     private TextField componentField;
@@ -38,6 +43,26 @@ public class checkItem extends VBox {
 
     void removeItem(String str){
 
+    }
+
+    void saveConfigToFile(String filename){
+        ArrayList<String> strings = new ArrayList<>();
+        int x = 0;
+        for(CheckBoxLabel box: boxes){
+            strings.add(box.getNumText());
+        }
+        try {
+            File file = new File(filename);
+            FileWriter fileWriter = new FileWriter(file);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            for(String s: strings){
+                bufferedWriter.write(s);
+            }
+            bufferedWriter.close();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     Boolean getValue(int index){

@@ -6,8 +6,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-
 import java.util.ArrayList;
 
 
@@ -17,6 +15,10 @@ public class Controller {
     TextField nameBox = new TextField();
     @FXML
     Button add = new Button();
+    @FXML
+    Button delButton = new Button();
+    @FXML
+    Button saveButton = new Button();
     @FXML
     ComboBox<String> combo = new ComboBox<>();
     @FXML
@@ -36,7 +38,6 @@ public class Controller {
             combo.getItems().add(nameBox.getText());
             list.getItems().add(nameBox.getText());
             items.add(new checkItem(nameBox.getText()));
-
             count++;
             nameBox.clear();
         }
@@ -54,11 +55,10 @@ public class Controller {
         catch (ArrayIndexOutOfBoundsException e){
             System.out.println("ERROR!");
         }
-        /*
-        if(vBoxes[ind] != null && ind > -1){
-            displayPane.getChildren().add(vBoxes[ind]);
-        }
-        */
+    }
+
+    @FXML
+    void saveItem(){
     }
 
 }

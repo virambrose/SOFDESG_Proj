@@ -15,4 +15,12 @@ class CheckBoxLabel extends HBox {
         number = new Label(count + ". ");
         this.getChildren().addAll(number, label, check);
     }
+
+    String getText(){
+        return label.getText();
+    }
+
+    String getNumText(){
+        return number.getText()+label.getText();
+    }
 }
