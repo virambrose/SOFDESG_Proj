@@ -29,7 +29,13 @@
                                     <Button fx:id="add" layoutX="340.0" layoutY="1.0" mnemonicParsing="false" onAction="#addItem" prefHeight="25.0" prefWidth="46.0" text="Add" />
                                  </children>
                               </HBox>
-                              <ComboBox fx:id="combo" layoutX="5.0" layoutY="34.0" onAction="#showItem" prefHeight="25.0" prefWidth="491.0" promptText="Choose Machine" />
+                              <HBox>
+                                 <children>
+                                    <ComboBox fx:id="combo" layoutX="5.0" layoutY="34.0" onAction="#showItem" prefHeight="25.0" prefWidth="388.0" promptText="Choose Machine" />
+                                    <Button fx:id="delButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="delete" />
+                                    <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Save" />
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                         <ScrollPane layoutX="14.0" layoutY="64.0" prefHeight="962.0" prefWidth="491.0">
@@ -41,7 +47,7 @@
                               </AnchorPane>
                           </content>
                         </ScrollPane>
-                        <AnchorPane fx:id="displayPane" layoutX="506.0" layoutY="14.0" prefHeight="1012.0" prefWidth="1205.0" />
+                        <AnchorPane fx:id="displayPane" layoutX="505.0" prefHeight="1012.0" prefWidth="1205.0" />
                      </children>
                   </AnchorPane>
               </items>
