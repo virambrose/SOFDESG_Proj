@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="added groundwork for saving configs">
-      <change afterPath="$PROJECT_DIR$/src/sample/RadioButtonLabel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SOFDESG_Proj/sample/CheckBoxLabel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOFDESG_Proj/sample/CheckBoxLabel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SOFDESG_Proj/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOFDESG_Proj/sample/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SOFDESG_Proj/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOFDESG_Proj/sample/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SOFDESG_Proj/sample/checkItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOFDESG_Proj/sample/checkItem.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SOFDESG_Proj/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SOFDESG_Proj/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/checkItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/checkItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -131,8 +126,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/RadioButtonLabel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+            <state relative-caret-position="365">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -375,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1582087550882</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added groundwork for saving configs">
+      <created>1582092738934</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1582092738934</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -394,7 +396,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.41304347" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.41304347" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -513,8 +515,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/RadioButtonLabel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="27" column="8" lean-forward="true" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+        <state relative-caret-position="365">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
