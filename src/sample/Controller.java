@@ -59,6 +59,8 @@ public class Controller {
 
     @FXML
     void saveItem(){
+        int ind = combo.getItems().lastIndexOf(combo.getValue());
+        items.get(ind).saveConfigToFile();
     }
 
 }

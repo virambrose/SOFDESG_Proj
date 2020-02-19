@@ -45,14 +45,13 @@ public class checkItem extends VBox {
 
     }
 
-    void saveConfigToFile(String filename){
+    void saveConfigToFile(){
         ArrayList<String> strings = new ArrayList<>();
-        int x = 0;
         for(CheckBoxLabel box: boxes){
             strings.add(box.getNumText());
         }
         try {
-            File file = new File(filename);
+            File file = new File(this.title.getText()+".cbcfg");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for(String s: strings){

@@ -21,6 +21,6 @@ class CheckBoxLabel extends HBox {
     }
 
     String getNumText(){
-        return number.getText()+label.getText();
+        return "#"+label.getText();
     }
 }
