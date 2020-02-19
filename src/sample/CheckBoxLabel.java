@@ -2,9 +2,8 @@ package sample;
 
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 
-class CheckBoxLabel extends HBox {
+class CheckBoxLabel extends HBoxWidgetAbstract {
     private CheckBox check;
     private Label label;
     private Label number;

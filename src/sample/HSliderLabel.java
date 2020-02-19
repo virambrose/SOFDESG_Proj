@@ -1,12 +1,9 @@
 package sample;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.layout.HBox;
 
-class HSliderLabel extends HBox {
+class HSliderLabel extends HBoxWidgetAbstract {
     private Slider slider;
     private Label dLabel;
     private Label label;

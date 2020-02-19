@@ -9,31 +9,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class checkItem extends VBox {
-
-    class criterion extends HBox{
-        CheckBoxLabel box;
-        HSliderLabel slider;
-        int identifier;
-
-        criterion(String title, int i, int ind){
-            identifier = i;
-            if(i == 1){
-                box = new CheckBoxLabel(title, ind);
-                this.getChildren().add(box);
-            }
-            else if(i == 2){
-                slider = new HSliderLabel(title, ind);
-                this.getChildren().add(slider);
-            }
-        }
-    }
-
-    private ArrayList<CheckBoxLabel> boxes = new ArrayList<>();
+    private ArrayList<HBoxWidgetAbstract> boxes = new ArrayList<>();
     private ArrayList<Boolean> values = new ArrayList<>();
-    private LinkedList<criterion> criteria = new LinkedList<>();
     private int count = 0;
     private static final int typeAmt = 2;
     private Label title;
@@ -72,15 +51,16 @@ public class checkItem extends VBox {
         String ident = selected.getText();
         if(ident.equals("Checkbox")){
             boxes.add(new CheckBoxLabel(str + " ", count+1));
-            criteria.add(new criterion(str + " ", 1, count + 1));
+            //criteria.add(new criterion(str + " ", 1, count + 1));
         }
         else if(ident.equals("Slider")){
-            criteria.add(new criterion(str + " ", 2, count + 1));
+            boxes.add(new HSliderLabel(str + " ", count+1));
+            //criteria.add(new criterion(str + " ", 2, count + 1));
         }
         values.add(false);
         componentField.clear();
         components.getChildren().clear();
-        components.getChildren().addAll(criteria);
+        components.getChildren().addAll(boxes);
         count++;
     }
 
@@ -90,8 +70,8 @@ public class checkItem extends VBox {
 
     void saveConfigToFile(){
         ArrayList<String> strings = new ArrayList<>();
-        for(CheckBoxLabel box: boxes){
-            strings.add(box.getNumText());
+        for(HBoxWidgetAbstract widget: boxes){
+            strings.add(widget.getNumText());
         }
         try {
             File file = new File("./"+this.title.getText()+".cbcfg");
