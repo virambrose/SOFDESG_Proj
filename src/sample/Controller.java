@@ -7,6 +7,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 
 public class Controller {
@@ -26,10 +27,10 @@ public class Controller {
     @FXML
     ListView<String> list = new ListView<>();
 
-    //non-FXML
-    private static final int max = 50;
+    //not-FXML Objects and Properties
     private int count = 0;
-    private ArrayList<checkItem> items = new ArrayList<>();
+    //private ArrayList<checkItem> items = new ArrayList<>();
+    private LinkedList<checkItem> items = new LinkedList<>();
 
     //FXML methods
     @FXML
@@ -46,9 +47,7 @@ public class Controller {
     @FXML
     void showItem(){
         displayPane.getChildren().clear();
-        int ind = combo.getItems().lastIndexOf(combo.getValue());
-        System.out.println(combo.getValue());
-        System.out.println(ind);
+        int ind = list.getSelectionModel().getSelectedIndex();
         try {
             displayPane.getChildren().add(items.get(ind));
         }
@@ -58,9 +57,33 @@ public class Controller {
     }
 
     @FXML
+    void deleteItem(){
+        int ind = list.getSelectionModel().getSelectedIndex();
+        items.remove(ind);
+        updateItems();
+    }
+
+    @FXML
     void saveItem(){
-        int ind = combo.getItems().lastIndexOf(combo.getValue());
+        int ind = list.getSelectionModel().getSelectedIndex();
         items.get(ind).saveConfigToFile();
     }
 
+    void showItemListener(){
+        displayPane.getChildren().clear();
+        int ind = list.getSelectionModel().getSelectedIndex();
+        try {
+            displayPane.getChildren().add(items.get(ind));
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("ERROR!");
+        }
+    }
+
+    private void updateItems(){
+        list.getItems().clear();
+        for(checkItem x : items){
+            list.getItems().add(x.getName());
+        }
+    }
 }
