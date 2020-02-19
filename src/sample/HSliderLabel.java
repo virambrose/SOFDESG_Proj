@@ -20,12 +20,6 @@ class HSliderLabel extends HBoxWidgetAbstract {
             sliderVal = Math.round(newValue.doubleValue()*100.0) / 100.0;
             dLabel.setText("\t" + sliderVal);
         });
-        /*
-        slider.setOnDragDropped(event -> {
-            sliderVal = slider.getValue();
-            dLabel.setText("\t"+sliderVal);
-        });
-         */
         this.getChildren().addAll(number, label, dLabel, slider);
     }
 
@@ -37,6 +31,6 @@ class HSliderLabel extends HBoxWidgetAbstract {
 
     @Override
     String getNumText() {
-        return "@"+label.getText();
+        return "~"+label.getText();
     }
 }

@@ -14,7 +14,6 @@ public class checkItem extends VBox {
     private ArrayList<HBoxWidgetAbstract> boxes = new ArrayList<>();
     private ArrayList<Boolean> values = new ArrayList<>();
     private int count = 0;
-    private static final int typeAmt = 2;
     private Label title;
     private TextField componentField;
     private RadioButton[] typeSpecifier;
@@ -22,18 +21,21 @@ public class checkItem extends VBox {
     private Button addComp;
     private VBox components;
 
+    //types of widgets
+    private static final String[] types = new String[]{"Checkbox", "Slider", "RadioButton"};
+    private static final int max = 3;
+
+
     checkItem(String title){
         this.title = new Label(title);
         componentField = new TextField();
         addComp = new Button("Add");
         typeTogggle = new ToggleGroup();
-        typeSpecifier = new RadioButton[typeAmt];
-        //Define types
-        typeSpecifier[0] = new RadioButton("Checkbox");
-        typeSpecifier[1] = new RadioButton("Slider");
-        //Add to Toggle Group
-        typeSpecifier[0].setToggleGroup(typeTogggle);
-        typeSpecifier[1].setToggleGroup(typeTogggle);
+        typeSpecifier = new RadioButton[max];
+        for(int x = 0; x < max; x++){
+            typeSpecifier[x] = new RadioButton(types[x]);
+            typeSpecifier[x].setToggleGroup(typeTogggle);
+        }
         HBox types = new HBox(typeSpecifier);
         components = new VBox();
         addComp.setOnAction(event -> addItem(componentField.getText()));
@@ -56,6 +58,9 @@ public class checkItem extends VBox {
         else if(ident.equals("Slider")){
             boxes.add(new HSliderLabel(str + " ", count+1));
             //criteria.add(new criterion(str + " ", 2, count + 1));
+        }
+        else if(ident.equals("RadioButton")){
+            boxes.add(new RadioButtonLabel(str + ": ", count + 1));
         }
         values.add(false);
         componentField.clear();
