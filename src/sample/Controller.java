@@ -21,8 +21,6 @@ public class Controller {
     @FXML
     Button saveButton = new Button();
     @FXML
-    ComboBox<String> combo = new ComboBox<>();
-    @FXML
     AnchorPane displayPane = new AnchorPane();
     @FXML
     ListView<String> list = new ListView<>();
@@ -36,7 +34,6 @@ public class Controller {
     @FXML
     void addItem(){
         if(!(nameBox.getText() == null)){
-            combo.getItems().add(nameBox.getText());
             list.getItems().add(nameBox.getText());
             items.add(new checkItem(nameBox.getText()));
             count++;

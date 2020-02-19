@@ -26,15 +26,14 @@
                               <HBox layoutX="8.0">
                                  <children>
                                     <TextField fx:id="nameBox" layoutX="8.0" onAction="#addItem" prefHeight="31.0" prefWidth="431.0" />
-                                    <Button fx:id="add" layoutX="340.0" layoutY="1.0" mnemonicParsing="false" onAction="#addItem" prefHeight="31.0" prefWidth="63.0" text="Add" />
                                  </children>
                               </HBox>
                               <VBox>
                                  <children>
                                     <HBox>
                                        <children>
-                                          <ComboBox fx:id="combo" layoutX="5.0" layoutY="34.0" onAction="#showItem" prefHeight="31.0" prefWidth="366.0" promptText="Choose Machine" />
-                                          <Button fx:id="delButton" mnemonicParsing="false" onAction="#deleteItem" prefHeight="25.0" prefWidth="63.0" text="delete" />
+                                          <Button fx:id="add" mnemonicParsing="false" onAction="#addItem" prefHeight="31.0" prefWidth="63.0" text="Add" />
+                                          <Button fx:id="delButton" mnemonicParsing="false" onAction="#deleteItem" prefHeight="31.0" prefWidth="63.0" text="Delete" />
                                           <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveItem" prefHeight="31.0" prefWidth="64.0" text="Save" />
                                        </children>
                                     </HBox>
@@ -43,7 +42,7 @@
                               </VBox>
                            </children>
                         </VBox>
-                        <AnchorPane fx:id="displayPane" layoutX="505.0" layoutY="16.0" prefHeight="996.0" prefWidth="1205.0" />
+                        <AnchorPane fx:id="displayPane" layoutX="512.0" layoutY="16.0" prefHeight="996.0" prefWidth="1198.0" />
                      </children>
                   </AnchorPane>
               </items>

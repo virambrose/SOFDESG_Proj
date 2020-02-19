@@ -2,7 +2,6 @@ package sample;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 public class RadioButtonLabel extends HBox {
