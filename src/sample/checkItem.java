@@ -77,8 +77,9 @@ public class checkItem extends VBox {
             File file = new File("./"+this.title.getText()+".cbcfg");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            bufferedWriter.write("!" + this.title.getText() + "\n");
             for(String s: strings){
-                bufferedWriter.write(s);
+                bufferedWriter.write(s + "\n");
             }
             bufferedWriter.close();
         }

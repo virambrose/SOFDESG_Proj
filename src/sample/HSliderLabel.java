@@ -30,6 +30,13 @@ class HSliderLabel extends HBoxWidgetAbstract {
     }
 
 
+    @Override
+    String getText() {
+        return label.getText();
+    }
 
-
+    @Override
+    String getNumText() {
+        return "@"+label.getText();
+    }
 }

@@ -56,20 +56,21 @@ public class Controller {
     @FXML
     void deleteItem(){
         int ind = list.getSelectionModel().getSelectedIndex();
-        items.remove(ind);
+        if (ind > -1) items.remove(ind);
         updateItems();
     }
 
     @FXML
     void saveItem(){
         int ind = list.getSelectionModel().getSelectedIndex();
-        items.get(ind).saveConfigToFile();
+        if (ind > -1) items.get(ind).saveConfigToFile();
     }
 
     void showItemListener(){
         displayPane.getChildren().clear();
         int ind = list.getSelectionModel().getSelectedIndex();
         try {
+            if (ind > -1)
             displayPane.getChildren().add(items.get(ind));
         }
         catch (ArrayIndexOutOfBoundsException e){

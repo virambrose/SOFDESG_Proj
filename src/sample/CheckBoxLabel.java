@@ -15,10 +15,12 @@ class CheckBoxLabel extends HBoxWidgetAbstract {
         this.getChildren().addAll(number, label, check);
     }
 
+    @Override
     String getText(){
         return label.getText();
     }
 
+    @Override
     String getNumText(){
         return "#"+label.getText();
     }
