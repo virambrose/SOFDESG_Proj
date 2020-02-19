@@ -10,7 +10,7 @@ class CheckBoxLabel extends HBoxWidgetAbstract {
 
     CheckBoxLabel(String text, int count){
         check = new CheckBox();
-        label = new Label(text);
+        label = new Label(text + ".\t");
         number = new Label(count + ". ");
         this.getChildren().addAll(number, label, check);
     }
