@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SOFDESG_Proj:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SOFDESG_Proj_jar</output-path>
+    <root id="archive" name="SOFDESG_Proj.jar">
+      <element id="module-output" name="SOFDESG_Proj" />
+    </root>
+  </artifact>
+</component>

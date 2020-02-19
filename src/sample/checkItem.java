@@ -22,8 +22,8 @@ public class checkItem extends VBox {
     private VBox components;
 
     //types of widgets
-    private static final String[] types = new String[]{"Checkbox", "Slider", "RadioButton"};
-    private static final int max = 3;
+    public String[] types = new String[]{"Checkbox", "Slider"};
+    private static final int max = 2;
 
 
     checkItem(String title){
@@ -49,18 +49,36 @@ public class checkItem extends VBox {
     }
 
     private void addItem(String str){
+        if(componentField.getText().equals("")) return;
         RadioButton selected = (RadioButton) typeTogggle.getSelectedToggle();
         String ident = selected.getText();
-        if(ident.equals("Checkbox")){
-            boxes.add(new CheckBoxLabel(str + " ", count+1));
-            //criteria.add(new criterion(str + " ", 1, count + 1));
+        switch (ident) {
+            case "Checkbox":
+                boxes.add(new CheckBoxLabel(str + " ", count + 1));
+                //criteria.add(new criterion(str + " ", 1, count + 1));
+                break;
+            case "Slider":
+                boxes.add(new HSliderLabel(str + " ", count + 1));
+                //criteria.add(new criterion(str + " ", 2, count + 1));
+                break;
         }
-        else if(ident.equals("Slider")){
-            boxes.add(new HSliderLabel(str + " ", count+1));
-            //criteria.add(new criterion(str + " ", 2, count + 1));
-        }
-        else if(ident.equals("RadioButton")){
-            boxes.add(new RadioButtonLabel(str + ": ", count + 1));
+        values.add(false);
+        componentField.clear();
+        components.getChildren().clear();
+        components.getChildren().addAll(boxes);
+        count++;
+    }
+
+    void addItem(String str, String ident){
+        switch (ident) {
+            case "Checkbox":
+                boxes.add(new CheckBoxLabel(str + " ", count + 1));
+                //criteria.add(new criterion(str + " ", 1, count + 1));
+                break;
+            case "Slider":
+                boxes.add(new HSliderLabel(str + " ", count + 1));
+                //criteria.add(new criterion(str + " ", 2, count + 1));
+                break;
         }
         values.add(false);
         componentField.clear();
@@ -82,7 +100,7 @@ public class checkItem extends VBox {
             File file = new File("./"+this.title.getText()+".cbcfg");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write("!" + this.title.getText() + "\n");
+            bufferedWriter.write(this.title.getText() + "\n");
             for(String s: strings){
                 bufferedWriter.write(s + "\n");
             }
