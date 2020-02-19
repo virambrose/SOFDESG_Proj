@@ -32,6 +32,10 @@ public class checkItem extends VBox {
         this.getChildren().addAll(this.title, hBox, this.components);
     }
 
+    public String getName(){
+        return title.getText();
+    }
+
     private void addItem(String str){
         boxes.add(new CheckBoxLabel(str + " ", count+1));
         values.add(false);
@@ -45,14 +49,13 @@ public class checkItem extends VBox {
 
     }
 
-    void saveConfigToFile(String filename){
+    void saveConfigToFile(){
         ArrayList<String> strings = new ArrayList<>();
-        int x = 0;
         for(CheckBoxLabel box: boxes){
             strings.add(box.getNumText());
         }
         try {
-            File file = new File(filename);
+            File file = new File("./"+this.title.getText()+".cbcfg");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             for(String s: strings){

@@ -25,29 +25,25 @@
                            <children>
                               <HBox layoutX="8.0">
                                  <children>
-                                    <TextField fx:id="nameBox" layoutX="8.0" onAction="#addItem" prefHeight="25.0" prefWidth="446.0" />
-                                    <Button fx:id="add" layoutX="340.0" layoutY="1.0" mnemonicParsing="false" onAction="#addItem" prefHeight="25.0" prefWidth="46.0" text="Add" />
+                                    <TextField fx:id="nameBox" layoutX="8.0" onAction="#addItem" prefHeight="31.0" prefWidth="431.0" />
+                                    <Button fx:id="add" layoutX="340.0" layoutY="1.0" mnemonicParsing="false" onAction="#addItem" prefHeight="31.0" prefWidth="63.0" text="Add" />
                                  </children>
                               </HBox>
-                              <HBox>
+                              <VBox>
                                  <children>
-                                    <ComboBox fx:id="combo" layoutX="5.0" layoutY="34.0" onAction="#showItem" prefHeight="25.0" prefWidth="388.0" promptText="Choose Machine" />
-                                    <Button fx:id="delButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="63.0" text="delete" />
-                                    <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="42.0" text="Save" />
+                                    <HBox>
+                                       <children>
+                                          <ComboBox fx:id="combo" layoutX="5.0" layoutY="34.0" onAction="#showItem" prefHeight="31.0" prefWidth="366.0" promptText="Choose Machine" />
+                                          <Button fx:id="delButton" mnemonicParsing="false" onAction="#deleteItem" prefHeight="25.0" prefWidth="63.0" text="delete" />
+                                          <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveItem" prefHeight="31.0" prefWidth="64.0" text="Save" />
+                                       </children>
+                                    </HBox>
+                                    <ListView fx:id="list" onMouseClicked="#showItem" prefHeight="950.0" prefWidth="493.0" />
                                  </children>
-                              </HBox>
+                              </VBox>
                            </children>
                         </VBox>
-                        <ScrollPane layoutX="14.0" layoutY="64.0" prefHeight="962.0" prefWidth="491.0">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
-                                 <children>
-                                    <ListView fx:id="list" prefHeight="962.0" prefWidth="491.0" />
-                                 </children>
-                              </AnchorPane>
-                          </content>
-                        </ScrollPane>
-                        <AnchorPane fx:id="displayPane" layoutX="505.0" prefHeight="1012.0" prefWidth="1205.0" />
+                        <AnchorPane fx:id="displayPane" layoutX="505.0" layoutY="16.0" prefHeight="996.0" prefWidth="1205.0" />
                      </children>
                   </AnchorPane>
               </items>
