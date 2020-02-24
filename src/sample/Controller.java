@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -34,9 +35,11 @@ public class Controller {
     ListView<String> list = new ListView<>();
     @FXML
     Button loadButton = new Button();
+    @FXML
+    Button writeButton = new Button();
 
     //not-FXML Objects and Properties
-    protected LinkedList<checkItem> items = new LinkedList<>();
+    private LinkedList<checkItem> items = new LinkedList<>();
     private int count = 0;
     //FXML methods
     @FXML
@@ -103,6 +106,21 @@ public class Controller {
         catch (FileNotFoundException e){
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void writeToFile(){
+        int ind = list.getSelectionModel().getSelectedIndex();
+        String filename = list.getSelectionModel().getSelectedItem() + ".csv";
+        try{
+            if (ind > -1)
+                items.get(ind).outputValues(filename);
+        }
+        catch (ArrayIndexOutOfBoundsException | IOException e){
+            e.printStackTrace();
+        }
+
+
     }
 
     void showItemListener(){
