@@ -8,13 +8,15 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    private FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
+    private FXMLLoader mainMenu = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sample.fxml"));
         Parent root = loader.load();
-        Controller controller = loader.getController();
         Scene mainScene = new Scene(root);
-        mainScene.getStylesheets().add("sample/styles.css");
+        Controller controller = loader.getController();
+        mainMenu mainMenuController = mainMenu.getController();
         controller.list.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             controller.showItemListener();
         });
@@ -22,7 +24,6 @@ public class Main extends Application {
         primaryStage.setScene(mainScene);
         primaryStage.setMaximized(true);
         primaryStage.show();
-        controller.add.setStyle(".button");
     }
 
 

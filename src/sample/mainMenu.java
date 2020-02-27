@@ -14,9 +14,9 @@ public class mainMenu {
     @FXML
     Button editButton = new Button();
 
-    Parent newParent, mainParent;
-    Stage editStage, mainStage;
-    Scene editScene, mainScene;
+    private Parent newParent;
+    private Stage editStage, mainStage;
+    private Scene editScene, mainScene;
 
 
     private FXMLLoader mainMenu = new FXMLLoader(getClass().getResource("mainMenu.fxml"));
@@ -25,7 +25,6 @@ public class mainMenu {
     @FXML
     void changeScene() throws IOException {
         newParent = formEditor.load();
-        mainParent = mainMenu.load();
         editStage = new Stage();
         mainScene = editButton.getScene();
         mainStage = new Stage();
