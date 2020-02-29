@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -34,9 +35,11 @@ public class Controller {
     ListView<String> list = new ListView<>();
     @FXML
     Button loadButton = new Button();
+    @FXML
+    Button writeButton = new Button();
 
     //not-FXML Objects and Properties
-    protected LinkedList<checkItem> items = new LinkedList<>();
+    private LinkedList<checkItem> items = new LinkedList<>();
     private int count = 0;
     //FXML methods
     @FXML
@@ -63,41 +66,61 @@ public class Controller {
     }
 
     @FXML
-    private void loadFile() throws FileNotFoundException {
+    private void loadFile() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open File");
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("config file", "*.cbcfg"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("config file (*.cbcfg)", "*.cbcfg"));
         File file = fileChooser.showOpenDialog(loadButton.getScene().getWindow());
         List<String> lines = new ArrayList<>();
         String title;
-        Scanner fileReader = new Scanner(file);
-        title = fileReader.nextLine();
-        System.out.println(title);
-        while(fileReader.hasNextLine()){
-            String debug = fileReader.nextLine();
-            lines.add(debug);
-            System.out.println(debug);
-        }
-        checkItem item = new checkItem(title);
-        for(String s : lines){
-            String substr;
-            String indicator = item.types[0];
-            substr = s.substring(1);
-            System.out.println(s.substring(0,1));
-            switch (s.substring(0, 1)) {
-                case "#":
-                    indicator = item.types[0];
-                    break;
-                case "~":
-                    indicator = item.types[1];
-                    break;
+        try{
+            Scanner fileReader = new Scanner(file);
+            title = fileReader.nextLine();
+            System.out.println(title);
+            while(fileReader.hasNextLine()){
+                String debug = fileReader.nextLine();
+                lines.add(debug);
+                System.out.println(debug);
             }
-            System.out.println(indicator);
-            System.out.println(substr);
-            item.addItem(substr, indicator);
+            checkItem item = new checkItem(title);
+            for(String s : lines) {
+                String substr;
+                String indicator = item.types[0];
+                substr = s.substring(1);
+                System.out.println(s.substring(0, 1));
+                switch (s.substring(0, 1)) {
+                    case "#":
+                        indicator = item.types[0];
+                        break;
+                    case "~":
+                        indicator = item.types[1];
+                        break;
+                }
+                System.out.println(indicator);
+                System.out.println(substr);
+                item.addItem(substr, indicator);
+            }
+            items.add(item);
+            updateItems();
         }
-        items.add(item);
-        updateItems();
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void writeToFile(){
+        int ind = list.getSelectionModel().getSelectedIndex();
+        String filename = list.getSelectionModel().getSelectedItem() + ".csv";
+        try{
+            if (ind > -1)
+                items.get(ind).outputValues(filename);
+        }
+        catch (ArrayIndexOutOfBoundsException | IOException e){
+            e.printStackTrace();
+        }
+
+
     }
 
     void showItemListener(){
