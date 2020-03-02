@@ -36,6 +36,7 @@
                                           <Button fx:id="delButton" mnemonicParsing="false" onAction="#deleteItem" prefHeight="31.0" prefWidth="63.0" text="Delete" />
                                           <Button fx:id="saveButton" mnemonicParsing="false" onAction="#saveItem" prefHeight="31.0" prefWidth="64.0" text="Save" />
                                           <Button fx:id="loadButton" mnemonicParsing="false" onAction="#loadFile" prefHeight="31.0" prefWidth="64.0" text="Load" />
+                                          <Button fx:id="writeButton" mnemonicParsing="false" onAction="#writeToFile" prefHeight="31.0" prefWidth="100.0" text="Write to file" />
                                        </children>
                                     </HBox>
                                     <ListView fx:id="list" prefHeight="950.0" prefWidth="493.0" />

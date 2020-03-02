@@ -1,5 +1,6 @@
 package sample;
 
+import com.opencsv.CSVWriter;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class checkItem extends VBox {
     private ArrayList<HBoxWidgetAbstract> boxes = new ArrayList<>();
-    private ArrayList<Boolean> values = new ArrayList<>();
+    private ArrayList<value> values = new ArrayList<>();
     private int count = 0;
     private Label title;
     private TextField componentField;
@@ -22,8 +23,8 @@ public class checkItem extends VBox {
     private VBox components;
 
     //types of widgets
-    public String[] types = new String[]{"Checkbox", "Slider"};
-    private static final int max = 2;
+    String[] types = new String[]{"Checkbox", "Slider", "RadioButton"};
+    private static final int max = 3;
 
 
     checkItem(String title){
@@ -61,8 +62,12 @@ public class checkItem extends VBox {
                 boxes.add(new HSliderLabel(str + " ", count + 1));
                 //criteria.add(new criterion(str + " ", 2, count + 1));
                 break;
+            case "RadioButton":
+                boxes.add(new RadioButtonLabel(str + " ", count + 1));
+                break;
+
         }
-        values.add(false);
+        values.add(boxes.get(count).value);
         componentField.clear();
         components.getChildren().clear();
         components.getChildren().addAll(boxes);
@@ -79,8 +84,10 @@ public class checkItem extends VBox {
                 boxes.add(new HSliderLabel(str + " ", count + 1));
                 //criteria.add(new criterion(str + " ", 2, count + 1));
                 break;
+            case "RadioButton":
+                boxes.add(new RadioButtonLabel(str + " ", count + 1));
+                break;
         }
-        values.add(false);
         componentField.clear();
         components.getChildren().clear();
         components.getChildren().addAll(boxes);
@@ -111,8 +118,26 @@ public class checkItem extends VBox {
         }
     }
 
-    Boolean getValue(int index){
-        return values.get(index);
+    value getValue(int index){
+        try{
+            return boxes.get(index).value;
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    void outputValues(String filename) throws IOException, ArrayIndexOutOfBoundsException {
+        CSVWriter writer = new CSVWriter(new FileWriter(filename));
+        String[] row = new String[boxes.size()];
+        int c = 0;
+        for(HBoxWidgetAbstract a : boxes){
+            String s = "hi";
+            row[c++] = s;
+        }
+        writer.writeNext(row);
+        writer.close();
     }
 
 }
